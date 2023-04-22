@@ -35,16 +35,16 @@
                     <li>
                         <a v-scroll-to="'#home'"
                             class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-white md:p-0 dark:text-white md:hover:text-blue-700"
-                            aria-current="page">Home</a>
+                            aria-current="page">Store</a>
                     </li>
                     <li>
                         <a v-scroll-to="'#problem'"
-                            class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Problem</a>
+                            class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">About</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a v-scroll-to="'#solution'"
                             class="block py-2 pl-3 pr-4 text-white rounded md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0">Solution</a>
-                    </li>
+                    </li> -->
                     <!-- <li>
     <a
       v-scroll-to="'#target'"
@@ -55,21 +55,21 @@
                     <li class="">
                         <button v-scroll-to="'#contact'" type="button"
                             class="text-white bg-[#2D3648] focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0">
-                            Contact
+                            Login
                         </button>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="container">
-        <br>
-        {% block content %}
 
 
-        {% endblock content %}
-        <br>
-    </div>
+    {% block content %}
+
+
+    {% endblock content %}
+
+
     <footer>
 
 
