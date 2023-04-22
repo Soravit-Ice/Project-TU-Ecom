@@ -15,6 +15,10 @@ def login(request):
     return render(request, 'store/login.html')
 
 
+def about(request):
+    return render(request, 'store/about.html')
+
+
 def shop(request):
     data = cartData(request)
     cartItems = data['cartItems']
