@@ -13,8 +13,8 @@ class Product(models.Model):
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField(max_length=200, null=True)
     image = models.ImageField(null=True, blank=True)
-    # stock = models.IntegerField(null=True , blank=True)
-    # detail = models.CharField(max_length=200, null=True , blank=True)
+    stock = models.IntegerField(null=True , blank=True)
+    detail = models.CharField(max_length=200, null=True , blank=True)
     def __str__(self):
         return self.name
 
