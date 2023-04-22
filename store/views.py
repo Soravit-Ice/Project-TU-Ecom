@@ -8,7 +8,22 @@ from .utils import cookieCart, cartData, guestOrder
 
 
 def landingPage(request):
-    return render(request,'store/landingpage.html')
+    return render(request, 'store/landingpage.html')
+
+
+def login(request):
+    return render(request, 'store/login.html')
+
+
+def shop(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    products = Product.objects.all()
+    context = {'products': products, 'cartItems': cartItems}
+    return render(request, 'store/shop.html', context)
 
 
 def store(request):
@@ -54,9 +69,11 @@ def updateItem(request):
 
     customer = request.user.customer
     product = Product.objects.get(id=productId)
-    order, created = Order.objects.get_or_create(customer=customer, complete=False)
+    order, created = Order.objects.get_or_create(
+        customer=customer, complete=False)
 
-    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+    orderItem, created = OrderItem.objects.get_or_create(
+        order=order, product=product)
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1)
@@ -77,7 +94,8 @@ def processOrder(request):
 
     if request.user.is_authenticated:
         customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
     else:
         customer, order = guestOrder(request, data)
 
