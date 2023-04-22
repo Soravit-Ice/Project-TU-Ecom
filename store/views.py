@@ -7,6 +7,10 @@ from .models import *
 from .utils import cookieCart, cartData, guestOrder
 
 
+def landingPage(request):
+    return render(request,'store/landingpage.html')
+
+
 def store(request):
     data = cartData(request)
 
