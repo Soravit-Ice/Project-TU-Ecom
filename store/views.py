@@ -11,6 +11,10 @@ def landingPage(request):
     return render(request, 'store/landingpage.html')
 
 
+def detailProduct(request):
+    return render(request, 'store/details.html')
+
+
 def login(request):
     return render(request, 'store/login.html')
 
