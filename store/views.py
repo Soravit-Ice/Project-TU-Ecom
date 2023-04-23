@@ -35,14 +35,19 @@ def shop(request):
     return render(request, 'store/shop.html', context)
 
 
-def store(request):
+def store(request , category):
     data = cartData(request)
 
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
 
-    products = Product.objects.all()
+    if category:
+        # filter products by category
+        products = Product.objects.filter(category=category)
+    else:
+        # no category specified, show all products
+        products = Product.objects.all()
     context = {'products': products, 'cartItems': cartItems}
     return render(request, 'store/shop.html', context)
 
