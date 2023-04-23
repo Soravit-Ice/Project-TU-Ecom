@@ -35,14 +35,14 @@ def shop(request):
     return render(request, 'store/shop.html', context)
 
 
-def store(request , category):
+def store(request , category=None):
     data = cartData(request)
 
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
 
-    if category != 'None':
+    if category is not None:
         # filter products by category
         products = Product.objects.filter(category=category)
     else:
