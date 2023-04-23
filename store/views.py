@@ -13,7 +13,7 @@ def landingPage(request):
 def detailProduct(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     context = {'product': product}
-    return render(request, 'product_detail.html', context)
+    return render(request, 'store/details.html', context)
 
 
 def login(request):

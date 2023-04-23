@@ -11,5 +11,5 @@ urlpatterns = [
     path('login/', views.login, name="login"),
     path('shop/', views.shop, name="shop"),
     path('about/', views.about, name="about"),
-    path('detail/<int:product_id>', views.detailProduct, name="detail"),
+    path('detail/<int:product_id>', views.detailProduct, name='detail'),
 ]
