@@ -9,7 +9,7 @@ urlpatterns = [
     path('process_order/', views.processOrder, name="process_order"),
     path('', views.landingPage, name="landing_page"),
     path('login/', views.login, name="login"),
-    # path('shop/', views.shop, name="shop"),
+    path('shop/', views.shop, name="shop"),
     path('about/', views.about, name="about"),
-    path('detail/', views.detailProduct, name="detail"),
+    path('detail/<int:product_id>', views.detailProduct, name="detail"),
 ]

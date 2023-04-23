@@ -1,8 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import JsonResponse
 import json
 import datetime
-
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
 
@@ -11,8 +10,10 @@ def landingPage(request):
     return render(request, 'store/landingpage.html')
 
 
-def detailProduct(request):
-    return render(request, 'store/details.html')
+def detailProduct(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    context = {'product': product}
+    return render(request, 'product_detail.html', context)
 
 
 def login(request):
